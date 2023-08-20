@@ -12,9 +12,6 @@ def main() -> None:
     # Create links
     network.create_link(router1, router2, 1)
 
-    # Simulate (will be extended when protocols are implemented)
-    # network.simulate(protocol_handler)
-
     print("Network created with routers and links")
 
 if __name__ == "__main__":
