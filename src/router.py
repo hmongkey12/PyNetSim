@@ -12,6 +12,10 @@ class Router:
     def update_routing_table(self, protocol_handler: ProtocolHandler, message):
         protocol_handler.handle_update(self, message)
 
+    def remove_neighbor(self, neighbor_id: int):
+        if neighbor_id in self.neighbors:
+            del self.neighbors[neighbor_id]
+
     def __str__(self):
         return f"Router {self.router_id}, Neighbors: {self.neighbors}, Routing Table: {self.routing_table}"
 
