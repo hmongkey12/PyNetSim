@@ -19,7 +19,8 @@ class Router:
             next_hop=neighbor_id, cost=cost)
 
     def update_routing_table(self, protocol_handler: ProtocolHandler, message: Any) -> None:
-        protocol_handler.handle_update(self, message)
+        protocol_handler.handle_update(
+            self.routing_table, self.neighbors, message)
 
     def remove_neighbor(self, neighbor_id: int) -> None:
         if neighbor_id in self.neighbors:
