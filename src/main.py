@@ -1,18 +1,19 @@
 from network import Network
-from router import Router
+from factories.router_factory import RouterFactory
+from managers.link_manager import LinkManager
+
 
 def main() -> None:
-    # Create network
-    network = Network()
+    router_factory = RouterFactory()
+    link_manager = LinkManager()
+    network = Network(router_factory, link_manager)
 
-    # Add routers
     router1 = network.add_router(1)
     router2 = network.add_router(2)
-
-    # Create links
     network.create_link(router1, router2, 1)
 
     print("Network created with routers and links")
+
 
 if __name__ == "__main__":
     main()
